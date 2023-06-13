@@ -1,0 +1,157 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @*CSS*@
+    <link rel="stylesheet" href="/Content/assets/css/reset.css" />
+    <link rel="stylesheet" href="/Content/assets/css/style.css" />
+    <link href="~/Content/assets/css/product.css" rel="stylesheet" />
+
+    @**@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    @*Header*@
+    <header>
+        <div class="header fixed">
+            <div class="main-content">
+                <div class="body">
+                    <nav class="nav">
+                        <a href="/">
+                            <img src="/Content/assets/img/logo.png"
+                                 alt="logo shoes"
+                                 class="logo" />
+                        </a>
+                        <ul class="list">
+                            <li>
+                                <a href="#!">ABOUT US</a>
+                            </li>
+                            <li>
+                                <a href="#NIKE">NIKE</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#!">NAM</a></li>
+                                    <li><a href="#!">NỮ</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#ADIDAS">ADIDAS</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#!">NAM</a></li>
+                                    <li><a href="#!">NỮ</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#YEEZY">YEEZY</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#!">YEEZY BOOST 350</a></li>
+                                    <li><a href="#!">YEEZY BOOST 700</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#ACCESSORY">ACCESSORY</a>
+                            </li>
+                            <li>
+                                <a href="#!">OTHER BRAND</a>
+                                <ul class="sub-menu">
+                                    <li><a href="#!">SNEAKER AUTHENTIC</a></li>
+                                    <li><a href="#!">GIÀY THỂ THAO CHẠY BỘ - TẬP GYM</a></li>
+                                    <li><a href="#!">GIÀY TENIS</a></li>
+                                    <li><a href="#!">BOX HỢP ĐỰNG GIÀY SNEAKER</a></li>
+                                </ul>
+                            </li>
+                            <li>
+                                <a href="#loca-sale">SALE</a>
+                            </li>
+                            <li>
+                                <a href="#spa-shoes">SPA SHOES</a>
+                            </li>
+                            <li>
+                                @Html.Partial("_LoginPartial")
+                            </li>
+
+                        </ul>
+                        <form action="~/Product/Search" method="get" id="search-box">
+                            <input style="color:rgb(255, 195, 0)" type="text" id="search-text" name="strSearch" placeholder="Tìm Kiếm Giày" />
+                            <button id="search-btn" type="submit"><i class="fa-solid fa-magnifying-glass btn-header"></i></button>
+                        </form>
+                        <div class="checkout ">
+                            <a href="/CartShopping">
+                                <i class="fa-solid fa-cart-shopping btn-header">
+                                    <span id="checkout_items" class="checkout_items"></span>
+                                </i>
+                            </a>
+
+                        </div>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </header>
+    @RenderBody()
+    <hr />
+    @* Footer*@
+    <div class="footer">
+        <div class="footer-content">
+            <div class="infor-shop">
+                <img src="/Content/assets/img/logo.png" alt="logo store" class="logo-primary">
+                <h2 class="footer-title">THÔNG TIN LIÊN HỆ</h2>
+                <p class="footer-desc">MeTalShoes.VN Trang Thông Tin Chính Thức.</p>
+                <p class="footer-desc"> ⛪ Địa chỉ: 10/80C XL Hà Nội, Phường Tân Phú, Thủ Đức, Thành phố Hồ Chí Minh, Việt Nam</p>
+                <p class="footer-desc">Email : cskh.kingshoes.vn@gmail.com</p>
+                <a class="footer-social-contact" href="#!">https://MeTalShoes.vn</a>
+                </br>
+                <a class="footer-social-contact" href="#!">https://twitter.com/MetaShoes</a>
+                </br>
+                <a class="footer-social-contact" href="#!">https://facebook.com/pg/www.MeTalShoes.vn</a>
+            </div>
+
+            <div class="support-customer">
+                <div class="row">
+                    <div class="colum-1">
+                        <h2 class="footer-title">HỖ TRỢ KHÁCH HÀNG</h2>
+                        <ul>
+                            <li><a class="footer-social-contact" href="#!">Chăm sóc khách hàng</a></li>
+                            <li><a class="footer-social-contact" href="#!">Thanh toán</a></li>
+                            <li><a class="footer-social-contact" href="#!">Hướng dẫn mua hàng</a></li>
+                        </ul>
+                    </div>
+                    <div class="column-2">
+                        <h2 class="footer-title">CHÍNH SÁCH</h2>
+                        <ul>
+                            <li><a class="footer-social-contact" href="">Chế độ bảo hành</a></li>
+                            <li><a class="footer-social-contact" href="">Chính sách đổi hàng</a></li>
+                            <li><a class="footer-social-contact" href="">Bảo mật thông tin</a></li>
+                            <li><a class="footer-social-contact" href="">Chính sách giao nhận</a></li>
+                        </ul>
+                    </div>
+
+                </div>
+                <p class="footer-desc">Số ĐKKD: 41N8041309 cấp ngày 17/8/2018. Nơi cấp Ủy Ban Nhân Dân Quận 9. Hộ Kinh Doanh: MeTalShoes. Hotline: 0937.051.131</p>
+                <h1 class="Active">CHỨNG NHẬN</h1>
+                <img src="/Content/assets/img/logoSaleNoti.png" alt="Thông Báo Chấn Nhận" class="Active-social">
+            </div>
+
+            <div class="footer-social">
+                <h2 class="footer-title">FANPAGE</h2>
+                <iframe src="https://www.facebook.com/plugins/page.php?href=https%3A%2F%2Fwww.facebook.com%2Fhutechuniversity&tabs=timeline&width=600&height=300&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId=2382458428564475" width="600" height="300" style="border:none;overflow:hidden" scrolling="no" frameborder="0" allowfullscreen="true" allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"></iframe>
+            </div>
+
+        </div>
+    </div>
+
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <!-- Tải Bootstrap JavaScript từ CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://kit.fontawesome.com/0155a7b8d8.js" crossorigin="anonymous"></script>
+    <script src="~/Scripts/jsShopping.js"></script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

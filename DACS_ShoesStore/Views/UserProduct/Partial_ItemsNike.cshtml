@@ -1,0 +1,44 @@
+﻿@model IEnumerable<DACS_ShoesStore.Models.Product>
+@using System.Globalization;
+
+@{
+    Layout = null;
+}
+
+@if (Model != null && Model.Any())
+{
+    <div class="container">
+        <div class="body">
+            <a href="~/UserProduct/ProductDetails.cshtml">
+                @foreach (var item in Model)
+                {
+                    if (item.CategoryId == 5)
+                    {
+                        @*<div class="row-lg-3">*@
+                        <div class="course-item">
+                            <a href="/UserProduct/ProductDetails/@item.Id">
+                                <img src="@item.FeatureImage" class="thumb" />
+                            </a>
+                            <div class="info text-break">
+                                <div class="head ">@item.Title</div>
+                                <div class="rating">
+                                    <i class="fa-solid fa-star" style="color: rgb(255, 195, 0)"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(255, 195, 0)"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(255, 195, 0)"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(255, 195, 0)"></i>
+                                    <i class="fa-solid fa-star" style="color: rgb(255, 195, 0)"></i>
+                                </div>
+                                <div class="price">@string.Format(new CultureInfo("vi-VN", false), "{0:c0}", item.Price)</div>
+                                @*<a href="/CartShopping/Checkout/@item.Id"><div class="btn btn-buy">Buy</div></a>*@
+                                <div class=" btn  btn-buy red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@item.Id">add to cart</a></div>
+                            </div>
+                        </div>
+                        @*   </div>*@
+                    }
+                }
+            </a>
+
+        </div>
+    </div>
+
+}

@@ -1,0 +1,46 @@
+﻿@using Microsoft.AspNet.Identity.EntityFramework
+@model IdentityRole
+@{
+    ViewBag.Title = "Them Moi Quyen";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+
+@*<section class="content-header">
+    <ul class="navbar-nav">
+        <li class="navbar-item">
+            <a href="" data-widget="pushmenu" class="nav-link" role="button"></a>
+        </li>
+        <li class="navbar-item d-none d-sm-inline-block">
+            <a href="/Admin" class="nav-link"> Trang Chu</a>
+        </li>
+        <li class="navbar-item d-none d-sm-inline-block">
+            <a href="~/Admin/Category" class="nav-link">@ViewBag.Title.Title</a>
+        </li>
+    </ul>
+</section>
+*@
+
+
+<section class="content">
+    <div class="card">
+        <div class="card-header">
+            <h3 class="card-title">Them Moi Quyen</h3>
+        </div>
+        <div class="card-body">
+            @using (Html.BeginForm("Create", "Role",FormMethod.Post))
+            {
+                @Html.ValidationSummary(true)
+                @Html.AntiForgeryToken()
+                <div class="form-group">
+                    <label>Ten Quyen</label>
+                    @Html.TextBoxFor(x => x.Name , new { @class= "form-control" })
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="btn btn-success">
+                            Them Moi
+                    </button>
+                </div>
+            }
+        </div>
+    </div>
+</section>

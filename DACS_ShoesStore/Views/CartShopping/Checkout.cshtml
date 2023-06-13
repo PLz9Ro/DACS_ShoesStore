@@ -1,0 +1,59 @@
+﻿@model IEnumerable<DACS_ShoesStore.Models.ShoppingCartItem>
+@using DACS_ShoesStore.Common;
+@using DACS_ShoesStore.Models;
+@using System.Globalization;
+
+
+@*-------------------------------------  Giỏ Hang  -------------------------------------*@
+
+@{
+    ViewBag.Title = "Checkout";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<header style="height:70px;">
+</header>
+<body>
+    <div class="row">
+        <div class="col-sm-12">
+
+            <div class="row text-center">
+                <div class="col-md-12">
+                    <h1>Thanh Toán</h1>
+                    <p>Kiểm Tra Lại Đơn Hàng Của Ban</p>
+                </div>
+            </div>
+            @if (ViewBag.CheckCart != null)
+                {
+            <div class="row " style="margin-top:50px;">
+                <div class="col-md-2 text-center">
+                    <div id="show_success"></div>
+                </div>
+                <div class="col-md-6">
+                    @Html.Action("Partial_CheckOut", "CartShopping")
+                </div>
+                <div class="col-md-4">
+                    @Html.Action("Partial_Item_ThanhToan", "CartShopping")
+                </div>
+            </div>
+            }
+                else
+                {
+                    <div>
+                        <p  style="padding:30px 0 0 50px; font-size:20px;">
+                        Bạn chưa có sản phẩm nào. Vui lòng quay lại trang <a href="/Home">sản phẩm</a> để mua hàng
+                        </p>
+                    </div>
+                }
+        </div>
+    </div>
+</body>
+<script>
+    function OnFailure(rs) {
+        if (!rs.Success) {
+            $('#show_success').html("Bạn đặt hàng thất bại! Xin vui lòng đặt lại");
+        }
+    }
+</script>
+
+

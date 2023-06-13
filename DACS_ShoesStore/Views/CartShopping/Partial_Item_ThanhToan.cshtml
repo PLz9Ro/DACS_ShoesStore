@@ -1,0 +1,38 @@
+﻿@model IEnumerable<DACS_ShoesStore.Models.ShoppingCartItem>
+@using DACS_ShoesStore.Common
+
+
+@if (Model != null && Model.Any())
+{
+    <h3>Giỏ hàng<span style="float:right;" class="badge badge-secondary badge-pill">@Model.Count()</span></h3>
+    var i = 0;
+    var tongtien = decimal.Zero;
+    <div style="border:1px solid #808080">
+        <table class="table">
+            <thead>
+                <tr>
+                    <td>Tên Sản Phẩm</td>
+                    <td>Số Lượng</td>
+                    <td>Giá</td>
+                </tr>
+            </thead>
+            @foreach (var item in Model)
+            {
+                tongtien += item.TotalPrice;
+                <tr class="text-left">
+                    <td>@item.ProductName</td>
+                    <td>@item.Quantity</td>
+                    <td>@Common.FormatNumber(item.Price, 0)</td>
+                </tr>
+            }
+            <tr class="text-center">
+                <th>Tổng tiền</th>
+                <th>@Common.FormatNumber(tongtien, 0)</th>
+            </tr>
+        </table>
+    </div>
+    <hr />
+
+
+
+}

@@ -1,0 +1,86 @@
+﻿@using Microsoft.AspNet.Identity.EntityFramework    
+@Model IEnumerable<IdentityRole>
+
+
+    @{
+        ViewBag.Title = "Danh Sach Phan Quyen";
+        Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    }
+    <!--<section class="content-header">
+        <ul class="navbar-navz
+            <li class="navbar-item">
+                <a href="" data-widget="pushmenu" class="nav-link" role="button"></a>
+            </li>
+            <li class="navbar-item d-none d-sm-inline-block">
+                <a href="/Admin/DashBoard" class="nav-link"> Trang Chu</a>
+            </li>-->
+    @*   <li class="navbar-item d-none d-sm-inline-block">
+            <a href="~/Admin/category" class="nav-link">@ViewBag.Title</a>
+        </li>*@
+    <!--</ul>
+    </section>-->
+
+
+
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Them Danh Sach Phan Quyen</h3>
+
+                <div class="card-tools">
+                    <a href="~/Admin/Role/Create" class="btn btn-success"> Them Moi</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                    <td>#</td>
+                    <td>Ten Quyen</td>
+                    <td>#</td>
+                    </thead>
+                    <tbody>
+                        @if (Model != null@*&& Model.Any()*@)
+                           {
+
+                                var i = 1;
+                                foreach (var item in Model)
+                                {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.Name</td>
+                                    <td>
+                                        <a href="~/Admin/Role/Delete?id=@item.Id" data-id="@item.Id" class="btn btn-sm btn-danger">Xóa</a>
+                                   </td>
+                                </tr>
+                                i++;
+                                }
+
+                           }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+
+    @section scripts{
+        <script>
+        $(document).ready(function () {
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xóa bản ghi này không?');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/Admin/Category/Delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        }
+                    });
+                }
+            });
+        });
+        </script>
+    }

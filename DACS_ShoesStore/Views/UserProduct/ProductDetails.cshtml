@@ -1,0 +1,39 @@
+﻿@model DACS_ShoesStore.Models.Product
+
+@{
+    ViewBag.Title = "ProductDetail";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+@*-------------------------------------  Chi Tiết Sản Phẩm  -------------------------------------*@
+
+@using System.Globalization;
+
+<div class="product" style="display:inline;">
+    <div class="body">
+        <div class="left-info" style="margin: 0 200px 0 100px; width: 50%">
+            <img src="@Model.FeatureImage" style="height: 400px ;" class="img-shoes">
+        </div>
+        <div class="right-info">
+            <div class="product-rating">
+                <div class="rating">
+                    <i class="fa-solid fa-star" style="color: rgb(255, 195, 0)"></i>
+                    <i class="fa-solid fa-star" style="color: rgb(255, 195, 0)"></i>
+                    <i class="fa-solid fa-star" style="color: rgb(255, 195, 0)"></i>
+                    <i class="fa-solid fa-star" style="color: rgb(255, 195, 0)"></i>
+                    <i class="fa-solid fa-star" style="color: rgb(255, 195, 0)"></i>
+                </div>
+            </div>
+            <h1 class="shoes-title">@Model.Title</h1>
+            <p class="product-category">Mã sản phẩm: <strong>@Model.Id</strong></p>
+            @*<p class="product-category">Loại sản phẩm: <strong>@Model.Category.Title</strong></p>*@
+            <p class="product-category">Mô tả sản phẩm: <strong>@Model.Des</strong></p>
+            <h3 class="product-price">@string.Format(new CultureInfo("vi-VN", false), "{0:c0}", @Model.Price)</h3>
+            <div class="addToCart">
+                <div class="btn-pay">
+                    <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@Model.Id">add to cart</a></div>
+                </div>
+            </div>
+            <p class="desc-info">Hoặc đặt mua: <a href="#!" style="color: red ; font-size:30px">0909.XXX.XXX</a> (Tư vấn Miễn phí)</p>
+        </div>
+    </div>
+</div>

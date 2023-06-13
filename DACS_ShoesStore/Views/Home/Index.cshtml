@@ -1,0 +1,56 @@
+﻿@using System.Globalization;
+@model IEnumerable<DACS_ShoesStore.Models.Product>
+<link href="~/Content/assets/css/style.css" rel="stylesheet" />
+
+
+
+<!-- Carousel  -->
+<div class="carousel">
+    <div class="carousel__content">
+        <img id="imgcarousel" src="~/Content/assets/img/hinh1.jpg" alt="" />
+    </div>
+</div>
+<!-- Booking -->
+<div class="book">
+    <div class="body">
+        <!-- content 1 -->
+        <div class="content">
+            <i class="fa-brands fa-angrycreative logo-book"></i>
+            <h3 class="title">CAM KẾT CHÍNH HÃNG</h3>
+            <span class="heading">100 % Authentic </span>
+            <p class="desc">
+                Cam kết sản phẩm chính hãng từ Châu Âu, Châu Mỹ...
+            </p>
+        </div>
+
+        <!-- content 2 -->
+        <div class="content">
+            <i class="fa-solid fa-truck-fast logo-book"></i>
+            <h3 class="title">GIAO HÀNG HỎA TỐC</h3>
+            <span class="heading">Express delivery</span>
+            <p class="desc">SHIP hỏa tốc 1h nhận hàng trong nội thành HCM</p>
+        </div>
+
+        <!-- content 3 -->
+        <div class="content">
+            <i class="fa-solid fa-headphones-simple logo-book"></i>
+            <h3 class="title">HỖ TRỢ 24/24</h3>
+            <span class="heading">Supporting 24/24</span>
+            <p class="desc">Gọi ngay</p>
+        </div>
+    </div>
+</div>
+<div id="ADIDAS" class="product product-2">
+    <a href="#!" class="heading">ADIDAS</a>
+    <div class="container">
+        @Html.Action("Partial_ItemsAdidas", "UserProduct")
+
+    </div>
+</div>
+<div id="YEEZY" class="product product-2 product-3">
+    <a href="#!" class="heading">Nike</a>
+    <div class="container">
+        @Html.Action("Partial_ItemsNike", "UserProduct")
+    </div>
+
+    <!-- Product accessory -->

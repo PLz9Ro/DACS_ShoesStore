@@ -1,0 +1,74 @@
+﻿@model IEnumerable<DACS_ShoesStore.Models.ApplicationUser>
+
+@{
+    ViewBag.Title = "Quan Ly Tai Khoang";
+    Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+}
+@using Microsoft.AspNet.Identity.EntityFramework
+@Model IEnumerable<IdentityRole>
+
+
+    @{
+        ViewBag.Title = "Danh Sach Phan Quyen";
+        Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
+    }
+    <section class="content-header">
+        <ul class="navbar-nav">
+            <li class="navbar-item">
+                <a href="" data-widget="pushmenu" class="nav-link" role="button"></a>
+            </li>
+            <li class="navbar-item d-none d-sm-inline-block">
+                <a href="/Admin/DashBoard" class="nav-link"> Trang Chu</a>
+            </li>
+            @*   <li class="navbar-item d-none d-sm-inline-block">
+                    <a href="~/Admin/category" class="nav-link">@ViewBag.Title</a>
+                </li>*@
+        </ul>
+    </section>
+
+
+
+    <section class="content">
+        <div class="card">
+            <div class="card-header">
+                <h3 class="card-title">Them Danh Sach Tai Khoang</h3>
+
+                <div class="card-tools">
+                    <a href="~/Admin/Account/Create" class="btn btn-success"> Them Moi</a>
+                </div>
+            </div>
+            <div class="card-body">
+                <table class="table table-bordered">
+                    <thead>
+                        <td>#</td>
+                        <td>Tai Khoảng</td>
+                        <td>Số Điện Thoại</td>
+                        <td>Email</td>
+                        <td></td>
+                    </thead>
+                    <tbody>
+                        @if (Model != null@*&& Model.Any()*@)
+                           {
+
+                            var i = 1;
+                            foreach (var item in Model)
+                              {
+                                <tr>
+                                    <td>@i</td>
+                                    <td>@item.UserName</td>
+                                    <td>@item.PhoneNumber</td>                                    
+                                    <td>@item.Email</td>
+                                    <td>
+                                        <a href="@*~/Admin/Account/Edit/@item.UserName*@ #" class="btn btn-sm btn-primary">Sửa</a>
+                                        <a href="#" @*data-user="@item.UserName"*@ class="btn btn-sm btn-danger">Xóa</a>
+                                    </td>
+                                </tr>
+                                i++;
+                            }
+                        }
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </section>
+

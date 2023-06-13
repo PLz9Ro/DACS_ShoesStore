@@ -1,0 +1,97 @@
+﻿@using DACS_ShoesStore.Models
+@model LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+   
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
+<link href="~/Content/assets/css/sigh-in.css" rel="stylesheet" />
+<link href="~/Content/assets/css/style.css" rel="stylesheet" />
+<h2>@ViewBag.Title.</h2>
+<!--<body>
+    <section>-->
+        <!--background-left-->
+        <!--<div class="img-bg">
+            <img src="~/Content/assets/img/LoginArt.png" alt="LoginArt" />
+        </div>-->
+        <!--Content-->
+        <!--<div class="noi-dung">
+            <div class="form">
+                <h2>Trang Đăng Nhập</h2>
+                <form action="">
+                    <div class="input-form">
+                        <span>Tên Tài Khoản</span>
+                        <input type="text" name="" />
+                    </div>
+                    <div class="input-form">
+                        <span>Mật Khẩu</span>
+                        <input type="password" name="" />
+                    </div>
+                    <div class="nho-dang-nhap">
+                        <label><input type="checkbox" name="" /> Nhớ Đăng Nhập</label>
+                    </div>
+                    <div class="input-form">
+                        <input type="submit" value="Đăng Nhập" />
+                    </div>
+                    <div class="input-form" style="text-align: center">
+                        <p>Bạn Chưa Có Tài Khoản? <a href="@Url.Action("Register","Account")">Đăng Ký</a></p>
+                    </div>
+                </form>
+                <h3>Đăng Nhập Bằng Mạng Xã Hội</h3>
+                <ul class="icon-dang-nhap">
+                    <li><i class="bi bi-facebook"></i></li>
+                    <li><i class="bi bi-google"></i></li>
+                    <li><i class="bi bi-twitter"></i></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>-->
+<body>
+    <section>
+        <!-- background-left -->
+        <div class="img-bg">
+            <img src="~/Content/assets/img/LoginArt.png" alt="LoginArt" />
+        </div>
+        <!-- Content -->
+        <div class="noi-dung">
+            <div class="form">
+                <h2>Trang Đăng Nhập</h2>
+                @using (Html.BeginForm("Login", "Account", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                {
+                    @Html.AntiForgeryToken()
+                    <div class="input-form">
+                        <span>Tên Tài Khoản</span>
+                        @Html.TextBoxFor(m => m.Email, new { @class = "form-control" })
+                    </div>
+                    <div class="input-form">
+                        <span>Mật Khẩu</span>
+                        @Html.PasswordFor(m => m.Password, new { @class = "form-control" })
+                    </div>
+                    <div class="nho-dang-nhap">
+                        <label>@Html.CheckBoxFor(m => m.RememberMe) Nhớ Đăng Nhập</label>
+                    </div>
+                    <div class="input-form">
+                        <input type="submit" value="Đăng Nhập" />
+                    </div>
+                    <div class="input-form" style="text-align: center">
+                        <p>Bạn Chưa Có Tài Khoản? <a href="@Url.Action("Register", "Account")">Đăng Ký</a></p>
+                    </div>
+                }
+                <h3>Đăng Nhập Bằng Mạng Xã Hội</h3>
+                <ul class="icon-dang-nhap">
+                    <li><i class="bi bi-facebook"></i></li>
+                    <li><i class="bi bi-google"></i></li>
+                    <li><i class="bi bi-twitter"></i></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+</body>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
