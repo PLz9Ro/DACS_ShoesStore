@@ -60,6 +60,8 @@ namespace DACS_ShoesStore.Models
 
         [Display(Name = "Remember me?")]
         public bool RememberMe { get; set; }
+
+
     }
     public class CreateAdminViewModel
     {
@@ -71,12 +73,12 @@ namespace DACS_ShoesStore.Models
 
         public string Role { get; set; }
         public string PhoneNumber { get; set; }
-     /*   [Required]
+            
+        [Required]
         [EmailAddress]
         [Display(Name = "Email")]
-        public string Email { get; set; }*/
-/*        public string Role { get; set; }
-*/
+        public string Email { get; set; }
+
         [Required]
         [StringLength(100, ErrorMessage = "The {0} must be at least {2} characters long.", MinimumLength = 6)]
         [DataType(DataType.Password)]
@@ -90,7 +92,12 @@ namespace DACS_ShoesStore.Models
         public string ConfirmPassword { get; set; }
     }
     public class RegisterViewModel
+        
     {
+        [Required]
+        [Display(Name = "UserName")]
+        public string UserName { get; set; }
+
         [Required]
         [EmailAddress]
         [Display(Name = "Email")]

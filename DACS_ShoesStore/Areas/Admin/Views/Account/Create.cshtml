@@ -1,30 +1,16 @@
 ﻿@model DACS_ShoesStore.Models.CreateAdminViewModel
-
-
 @{
-    ViewBag.Title = "Thêm Tài Khoảng Mới";
+    ViewBag.Title = "Create";
     Layout = "~/Areas/Admin/Views/Shared/_AdminLayout.cshtml";
 }
-<section class="content-header">
-    <ul class="navbar-nav">
-        <li class="navbar-item">
-            <a href="" data-widget="pushmenu" class="nav-link" role="button"></a>
-        </li>
-        <li class="navbar-item d-none d-sm-inline-block">
-            <a href="/Admin/Account" class="nav-link"> Quản Lý Tài Khoang</a>
-        </li>
-        @*   <li class="navbar-item d-none d-sm-inline-block">
-                <a href="~/Admin/category" class="nav-link">@ViewBag.Title</a>
-            </li>*@
-    </ul>
-</section>
-
-    
 
 <section class="content">
+
+    <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Thêm Tài Khoảng Mới</h3>
+            <h3 class="card-title">Thêm mới tài khoản</h3>
+
         </div>
         <div class="card-body">
             @using (Html.BeginForm("Create", "Account", FormMethod.Post))
@@ -32,41 +18,45 @@
                 @Html.ValidationSummary(false)
                 @Html.AntiForgeryToken()
                 <div class="form-group">
-                    <label>Tài Khoản</label>
+                    <label>Tài khoản</label>
                     @Html.TextBoxFor(x => x.UserName, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
-                    <label>Họ và Tên</label>
+                    <label>Họ tên</label>
                     @Html.TextBoxFor(x => x.FullName, new { @class = "form-control" })
                 </div>
-             @*   <div class="form-group">
-                    <label>Email</label>
-                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })z
-                </div>*@
                 <div class="form-group">
-                    <label>PhoneNumber</label>
+                    <label>Email</label>
+                    @Html.TextBoxFor(x => x.Email, new { @class = "form-control" })
+                </div>
+                <div class="form-group">
+                    <label>Số điện thoại</label>
                     @Html.TextBoxFor(x => x.PhoneNumber, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
-                    <label>Roles</label>
-                    @Html.DropDownListFor(x => x.Role, ViewBag.Role as SelectList, "Chose Role")
+                    <label>Quyền</label>
+                    @Html.DropDownListFor(x => x.Role, ViewBag.Role as SelectList, "- Chọn quyền -", new { @class = "form-control" })
                 </div>
                 <div class="form-group">
-                    <label>Password</label>
-                    @Html.TextBoxFor(x => x.Password, new { @class = "form-control" })
+                    <label>Mật khẩu</label>
+                    @Html.PasswordFor(x => x.Password, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
-                    <label>ConfirmPassword</label>
-                    @Html.TextBoxFor(x => x.ConfirmPassword, new { @class = "form-control" })
+                    <label>Nhập lại mật khẩu</label>
+                    @Html.PasswordFor(x => x.ConfirmPassword, new { @class = "form-control" })
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-success">
-                        Thêm Mới
-                    </button>
+                    <button type="submit" class="btn btn-success">Thêm mới</button>
                 </div>
             }
         </div>
-     </div>
-</section>
+        <!-- /.card-body -->
+        <div class="card-footer">
 
+        </div>
+        <!-- /.card-footer-->
+    </div>
+    <!-- /.card -->
+
+</section>
 

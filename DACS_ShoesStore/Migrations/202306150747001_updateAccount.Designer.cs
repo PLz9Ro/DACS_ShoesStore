@@ -7,13 +7,13 @@ namespace DACS_ShoesStore.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class InitialCreate : IMigrationMetadata
+    public sealed partial class updateAccount : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(InitialCreate));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(updateAccount));
         
         string IMigrationMetadata.Id
         {
-            get { return "202306051017442_InitialCreate"; }
+            get { return "202306150747001_updateAccount"; }
         }
         
         string IMigrationMetadata.Source

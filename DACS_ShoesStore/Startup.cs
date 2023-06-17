@@ -10,5 +10,7 @@ namespace DACS_ShoesStore
         {
             ConfigureAuth(app);
         }
+
     }
+
 }

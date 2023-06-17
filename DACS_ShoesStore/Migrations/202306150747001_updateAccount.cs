@@ -3,7 +3,7 @@
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class updateAccount : DbMigration
     {
         public override void Up()
         {
@@ -13,7 +13,7 @@
                     {
                         Quantity = c.Int(nullable: false, identity: true),
                         ProductId = c.Int(nullable: false),
-                        Price = c.Int(nullable: false),
+                        Total = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Quantity)
                 .ForeignKey("dbo.Product", t => t.ProductId, cascadeDelete: true)
@@ -31,6 +31,7 @@
                         FeatureImage = c.String(maxLength: 200),
                         Des = c.String(maxLength: 500),
                         Alias = c.String(maxLength: 50),
+                        ViewCount = c.Int(),
                     })
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Category", t => t.CategoryId, cascadeDelete: true)
@@ -55,30 +56,29 @@
                         ProductId = c.Int(nullable: false),
                         Price = c.Decimal(nullable: false, precision: 18, scale: 2),
                         Quantity = c.Int(nullable: false),
-                        Total = c.Single(nullable: false),
-                        Order_Id = c.Int(),
+                        Total = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id)
-                .ForeignKey("dbo.Order", t => t.Order_Id)
+                .ForeignKey("dbo.Order", t => t.OderId, cascadeDelete: true)
                 .ForeignKey("dbo.Product", t => t.ProductId, cascadeDelete: true)
-                .Index(t => t.ProductId)
-                .Index(t => t.Order_Id);
+                .Index(t => t.OderId)
+                .Index(t => t.ProductId);
             
             CreateTable(
                 "dbo.Order",
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        code = c.String(),
-                        CustomerName = c.String(),
+                        Code = c.String(nullable: false),
+                        CustomerName = c.String(nullable: false),
                         Phone = c.String(nullable: false),
                         Address = c.String(nullable: false),
-                        Email = c.String(nullable: false),
-                        TotalAmount = c.Decimal(precision: 18, scale: 2),
+                        Email = c.String(),
+                        TotalAmount = c.Int(nullable: false),
+                        Quantity = c.Int(nullable: false),
+                        TypePayment = c.Int(nullable: false),
                         CreatedDate = c.DateTime(nullable: false),
                         ModifiedDate = c.DateTime(nullable: false),
-                        CreateDay = c.DateTime(),
-                        TypePayment = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
             
@@ -94,19 +94,6 @@
                 .PrimaryKey(t => t.Id)
                 .ForeignKey("dbo.Product", t => t.ProductId, cascadeDelete: true)
                 .Index(t => t.ProductId);
-            
-            CreateTable(
-                "dbo.News",
-                c => new
-                    {
-                        Id = c.Int(nullable: false, identity: true),
-                        Title = c.String(),
-                        CategoryId = c.Int(),
-                        Description = c.String(),
-                        Detail = c.String(),
-                        image = c.String(),
-                    })
-                .PrimaryKey(t => t.Id);
             
             CreateTable(
                 "dbo.AspNetRoles",
@@ -137,10 +124,11 @@
                     {
                         Id = c.String(nullable: false, maxLength: 128),
                         Email = c.String(maxLength: 256),
+                        FullName = c.String(),
+                        PhoneNumber = c.String(),
                         EmailConfirmed = c.Boolean(nullable: false),
                         PasswordHash = c.String(),
                         SecurityStamp = c.String(),
-                        PhoneNumber = c.String(),
                         PhoneNumberConfirmed = c.Boolean(nullable: false),
                         TwoFactorEnabled = c.Boolean(nullable: false),
                         LockoutEndDateUtc = c.DateTime(),
@@ -187,7 +175,7 @@
             DropForeignKey("dbo.CartItems", "ProductId", "dbo.Product");
             DropForeignKey("dbo.ProductImage", "ProductId", "dbo.Product");
             DropForeignKey("dbo.OrderDetail", "ProductId", "dbo.Product");
-            DropForeignKey("dbo.OrderDetail", "Order_Id", "dbo.Order");
+            DropForeignKey("dbo.OrderDetail", "OderId", "dbo.Order");
             DropForeignKey("dbo.Product", "CategoryId", "dbo.Category");
             DropIndex("dbo.AspNetUserLogins", new[] { "UserId" });
             DropIndex("dbo.AspNetUserClaims", new[] { "UserId" });
@@ -196,8 +184,8 @@
             DropIndex("dbo.AspNetUserRoles", new[] { "UserId" });
             DropIndex("dbo.AspNetRoles", "RoleNameIndex");
             DropIndex("dbo.ProductImage", new[] { "ProductId" });
-            DropIndex("dbo.OrderDetail", new[] { "Order_Id" });
             DropIndex("dbo.OrderDetail", new[] { "ProductId" });
+            DropIndex("dbo.OrderDetail", new[] { "OderId" });
             DropIndex("dbo.Product", new[] { "CategoryId" });
             DropIndex("dbo.CartItems", new[] { "ProductId" });
             DropTable("dbo.AspNetUserLogins");
@@ -205,7 +193,6 @@
             DropTable("dbo.AspNetUsers");
             DropTable("dbo.AspNetUserRoles");
             DropTable("dbo.AspNetRoles");
-            DropTable("dbo.News");
             DropTable("dbo.ProductImage");
             DropTable("dbo.Order");
             DropTable("dbo.OrderDetail");

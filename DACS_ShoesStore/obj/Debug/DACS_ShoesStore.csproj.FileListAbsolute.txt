@@ -112,8 +112,6 @@ E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\xunit.execution.desk
 E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\xunit.abstractions.xml
 E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\xunit.core.xml
 E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\xunit.execution.desktop.xml
-E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\obj\Debug\DACS_ShoesStore.Migrations.InitialCreate.resources
-E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\obj\Debug\DACS_ShoesStore.csproj.GenerateResource.cache
 E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\Microsoft.Azure.Amqp.dll
 E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\Microsoft.Azure.Amqp.xml
 E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\PagedList.dll
@@ -122,3 +120,8 @@ E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\PagedList.xml
 E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\PagedList.Mvc.xml
 E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\DocumentFormat.OpenXml.dll
 E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\DocumentFormat.OpenXml.xml
+E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\obj\Debug\DACS_ShoesStore.Migrations.updateAccount.resources
+E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\obj\Debug\DACS_ShoesStore.csproj.GenerateResource.cache
+E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\CaptchaMvc.dll
+E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\CaptchaMvc.pdb
+E:\Hutech\Nam3\HK2\DACS\DACS_ShoesStore\DACS_ShoesStore\bin\CaptchaMvc.xml

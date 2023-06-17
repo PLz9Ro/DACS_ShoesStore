@@ -93,13 +93,13 @@ namespace DACS_ShoesStore.Areas.Admin.Controllers
 /*                return View("Create", "Product");s
 */            }
             var Edit = db.Products.Find(product.Id);
-            string path = Path.Combine(Server.MapPath("~/Content/assets/img/product/"), Path.GetFileName(FeatureImage.FileName));
+            string path = Path.Combine(Server.MapPath("/Content/assets/img/product/"), Path.GetFileName(FeatureImage.FileName));
             updateProduct.Title = product.Title;
             updateProduct.Price = product.Price;
             updateProduct.CategoryId = product.CategoryId;
             updateProduct.Des = product.Des;
             updateProduct.FeatureImage = product.FeatureImage;
-            updateProduct.FeatureImage = "~/Content/assets/img/product/" + Path.GetFileName(FeatureImage.FileName);
+            updateProduct.FeatureImage = "/Content/assets/img/product/" + Path.GetFileName(FeatureImage.FileName);
             db.SaveChanges();
             return RedirectToAction("Index", "Product");
         }

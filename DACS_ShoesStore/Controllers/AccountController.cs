@@ -1,14 +1,12 @@
-﻿using System;
-using System.Globalization;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using System.Web;
-using System.Web.Mvc;
+﻿using CaptchaMvc.HtmlHelpers;
+using DACS_ShoesStore.Models;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
-using DACS_ShoesStore.Models;
+using System.Linq;
+using System.Threading.Tasks;
+using System.Web;
+using System.Web.Mvc;
 
 namespace DACS_ShoesStore.Controllers
 {
@@ -61,16 +59,29 @@ namespace DACS_ShoesStore.Controllers
             return View();
         }
 
+    /*    [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Login()
+        {
+            
+        }
+
+*/
         //
         // POST: /Account/Login
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
+        public async Task<ActionResult> Login(LoginViewModel model, string returnUrl , HomeController home )
         {
             if (!ModelState.IsValid)
             {
                 return View(model);
+            }
+            if (!this.IsCaptchaValid(""))
+            {
+                ViewBag.ErrorMessge = "Captcha is not valid";
+                return View("Login", model);
             }
 
             // This doesn't count login failures towards account lockout
@@ -89,6 +100,7 @@ namespace DACS_ShoesStore.Controllers
                     ModelState.AddModelError("", "Invalid login attempt.");
                     return View(model);
             }
+           
         }
 
         //
@@ -167,7 +179,6 @@ namespace DACS_ShoesStore.Controllers
                 }
                 AddErrors(result);
             }
-
             // If we got this far, something failed, redisplay form
             return View(model);
         }
