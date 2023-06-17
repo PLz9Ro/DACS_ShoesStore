@@ -67,6 +67,7 @@ namespace DACS_ShoesStore.Models
                 }
             }
 
+
     public class ShoppingCartItem
     {
         public int ProductId { get; set; }
@@ -78,6 +79,12 @@ namespace DACS_ShoesStore.Models
         public decimal Price { get; set; }
         public decimal TotalPrice { get; set; }
 
+        public virtual ICollection<ProductImage> ProductImage { get; set; }
+        public virtual ICollection<Product> Products { get; set; }
+
+
+
     }
+
 
 }

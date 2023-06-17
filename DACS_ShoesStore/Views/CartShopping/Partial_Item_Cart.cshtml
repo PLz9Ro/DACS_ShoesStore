@@ -21,7 +21,7 @@
             tongtien += item.TotalPrice;
             <tr class="text-" id="trow_@item.ProductId">
                 <td>@(i+1)</td>
-                <td><img src="@item.ProductImg" width="80" /></td>
+                <td><img  data-id="@item.ProductId" src="@item.ProductImage" width="80" /></td>
                 <td>
                     <a href="/UserProduct/ProductDetails/@(item.ProductId)">
                         @item.ProductName

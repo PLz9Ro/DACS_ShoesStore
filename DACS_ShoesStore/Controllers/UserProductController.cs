@@ -38,6 +38,14 @@ namespace DACS_ShoesStore.Controllers
             return PartialView(items);
         }
 
-
+        public ActionResult Search(string strSearch) //tim kiem
+        {
+            List<Product> product = db.Products.OrderBy(x => x.Title).ToList();
+            if (!string.IsNullOrEmpty(strSearch))
+            {
+                product = product.Where(x => x.Title.Contains(strSearch)).ToList();
+            }
+            return View(product);
+        }
     }
 }

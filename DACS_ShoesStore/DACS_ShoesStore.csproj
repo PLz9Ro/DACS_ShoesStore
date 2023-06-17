@@ -1976,7 +1976,15 @@
     <Content Include="Content\assets\img\anhgiay\nmd-r1.jpg" />
     <Content Include="Content\assets\img\anhgiay\superstar.jpeg" />
     <Content Include="Content\assets\img\anhgiay\yzbost350.jpeg" />
+    <Content Include="Content\assets\img\product\09c5ea6df1bd4be6baaaac5e003e7047_9366.jpg" />
+    <Content Include="Content\assets\img\product\5ed9f54d099d4.jpg" />
+    <Content Include="Content\assets\img\product\68ae7ea7849b43eca70aac1e00f5146d_9366.jpg" />
+    <Content Include="Content\assets\img\product\7ed0855435194229a525aad6009a0497_9366.jpg" />
+    <Content Include="Content\assets\img\product\8204fc024834c74466a6ed55eedfa8a5-768x768.jpeg" />
+    <Content Include="Content\assets\img\product\air-jordan-1-low-nothing-but-net-cz8659-100-ngay-ra-mat-1-1024x719.jpg" />
     <Content Include="Content\assets\img\product\air-jordan-1-retro-high-lucky-green-DB4612-300-768x768.jpg" />
+    <Content Include="Content\assets\img\product\air-jordan-1-retro-high-og-lost-and-found.jpg" />
+    <Content Include="Content\assets\img\product\nike-blazer-low-jumbo-white-black-dn2158-101-768x768.jpg" />
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -2196,6 +2204,7 @@
     <Content Include="Areas\Admin\Views\Account\Index.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Create.cshtml" />
     <Content Include="Areas\Admin\Views\Account\Login.cshtml" />
+    <Content Include="Content\assets\img\product\15f901c90a9549d29104aae700d27efb_9366.webp" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -2254,6 +2263,7 @@
     <Content Include="Views\UserProduct\Partial_ItemsAdidas.cshtml" />
     <Content Include="Views\PayMent\PaymentConfirm.cshtml" />
     <Content Include="Views\PayMent\Index.cshtml" />
+    <Content Include="Views\UserProduct\Search.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
